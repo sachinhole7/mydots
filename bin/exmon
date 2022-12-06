@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# add external Monitor
+function addmonitor(){
+    [[ $(xrandr | grep -o "HDMI1 connected") ]] && xrandr --output eDP1 --primary --mode 1920x1080 --rotate normal --output ${1} --mode 1920x1080 --rotate normal ${2} eDP1
+    sleep 1 ; nitrogen --restore
+}
+
+addmonitor HDMI1 --left-of
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while read file; do
+	case "$1" in
+		"w") wal -i $file 		        ;; # set wallpaper
+		"l") betterlockscreen -u $file 	;; # set lockscreen wallpaper
+		"d") del $file 			        ;; # delete file
+		"c") echo $file | xclip -sel c	;; # copy image path
+	esac
+done
+

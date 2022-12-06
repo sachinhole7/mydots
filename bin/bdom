@@ -1,0 +1,44 @@
+#!/bin/bash
+
+HOSTS=${HOME}/.config/archin/hosts
+
+[[ -z $(find /etc/hosts -type l)  ]] && sudo ln -sf ${HOSTS} /etc/hosts || echo ok
+
+# add domain to backlist
+function Add_New_Domain_Blacklist(){
+    # get new domain from user
+    read -p " Enter a Domain to Add in BlackList: " domain
+
+    # write domain to HOSTS file
+    echo "0.0.0.0 ${domain}" >> ${HOSTS}
+}
+
+# allow domains
+function Allowed_List(){
+    # get blocked domains
+    domain=$(tac ${HOSTS} | grep "^0.0.0.0" | fzf --prompt "Add Domain to Allowed List: ")
+
+    # block domains
+    sed -i "s/${domain}/# ${domain}/g" ${HOSTS}
+}
+
+# block domain
+function BlackList_Domains(){
+    # get unblocked domain from ${HOSTS} file 
+    domain=$(tac ${HOSTS} | grep "^# 0.0.0.0" | cut -c 3- | fzf --prompt "Add Domain to BlackList: ")
+    
+    # write domain to ${HOSTS} file
+    sed -i "s/^# ${domain}/${domain}/g" ${HOSTS}
+} 
+
+# edit hosts file
+function Edit_Hosts_File(){
+    vim ${HOSTS} 
+}
+
+function main(){
+   cmd=$(grep "^function" ${0}|grep -v "^function main"|awk '{print $2}'|cut -d\( -f1|fzf )
+   ${cmd} ; exit 0
+}
+main
+

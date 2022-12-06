@@ -1,0 +1,23 @@
+#!/bin/sh
+
+mount_dir=$HOME/public/cell
+
+# create cell directory if it dose`t exists
+ [ -d $mount_dir ] || mkdir -p $mount_dir
+
+# mount android device
+ device=$(simple-mtpfs -l | rofi -dmenu -p "choose Device" -theme ~/.config/rofi/menu.rasi)
+ device_id=$(echo $device | cut -c -1)
+# mount device
+ simple-mtpfs --device $device_id $mount_dir	
+
+# create daemon to monitor device remove then unmount cell
+wdaemon(){
+ 	while [ "$device" = "$(simple-mtpfs -l | grep -o "$device")" ]; do
+		sleep 3
+	done
+	fusermount -u $mount_dir;  exit
+}
+
+wdaemon &
+

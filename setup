@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# install packages from arch repository
+sudo pacman --needed --noconfirm -S $(grep "\[\*\]" pkg.txt | cut -d' ' -f2)
+
+# install packages from 'aur'
+baph -i $(grep "\[A\]" pkg.txt | cut -d' ' -f2)
+
+# create symlinks
+
+# bin 
+ln -sf $(pwd)/bin          ${HOME}/.local/
+
+# alacritty 
+[[ -d ~/.config/alacritty ]] && rm -rf ~/.config/alacritty
+ln -sf $(pwd)/alacritty    ${HOME}/.config/
+

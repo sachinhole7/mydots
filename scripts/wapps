@@ -1,0 +1,16 @@
+#!/bin/sh
+
+#--------------------------------------------------------------------------------------------------------------
+
+## Notion            https://notion.so
+## Discord           https://discord.com/channels/@me
+## iNeuron           https://learn.ineuron.ai/
+## Syncthing         http://127.0.0.1:8384
+
+#-------------------------------------------------------------------------------------------------------------
+
+# choose web app from list
+web_app=$(grep "^##" "${0}" | rofi -dmenu | awk '{print $3}')
+
+# open web_app in new window (firefox)
+[ "${web_app}" ] && firefox --new-window "${web_app}"

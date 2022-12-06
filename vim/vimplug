@@ -1,0 +1,39 @@
+" vim pligins
+"
+" install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+       \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+"
+call plug#begin("~/.vim/plugged")
+"
+Plug 'tpope/vim-fugitive'                             " fugative vim github wrappper
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'                               " Fuzzy find plugin
+Plug 'gruvbox-community/gruvbox'                      " gruvbox color theme
+Plug 'plasticboy/vim-markdown'                        " markdown syntax highlighting
+Plug 'preservim/nerdtree'                             " file browser inside vim
+Plug 'ryanoasis/vim-devicons'                         " cool icons for nerd tree
+Plug 'plasticboy/vim-markdown'                        " markdown syntax highlighting
+Plug 'godlygeek/tabular'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'skywind3000/vim-auto-popmenu'                   " popup completion menu automatically
+Plug 'skywind3000/vim-dict'                           " database for vim-auto-popmenu
+Plug 'vim-airline/vim-airline'                        " status bar
+Plug 'junegunn/goyo.vim'                              " distraction-free writing in Vim
+"
+call plug#end()
+"
+"
+"
+" enable this plugin for filetypes, '*' for all files.
+let g:apc_enable_ft = {'*':1}
+"
+" markdown preview toggle switch
+map <C-p>  <Plug>MarkdownPreviewToggle 
+"
+" source for dictionary, current or other loaded buffers, see ':help cpt'
+set cpt=.,k,w,b,u,U,i,t
+"
+"

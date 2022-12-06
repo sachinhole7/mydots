@@ -1,0 +1,14 @@
+#!/bin/bash
+
+while inotifywait -q ${1}; do
+    clear
+    case ${1} in
+        *.js) node ${1} ;;
+        *.c ) cc ${1} -o code && ./code ;;
+        *.cpp) g++ ${1} -0 ccode   ;;
+        *.py) python ${1}   ;;
+        *.html) xdg-open ${1} ;;
+        *) echo " > this file format is not suported." ; exit ;;
+    esac 
+done
+
