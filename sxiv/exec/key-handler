@@ -2,9 +2,10 @@
 
 while read file; do
 	case "$1" in
-		"w") wal -i $file 		        ;; # set wallpaper
+		"w") wal -i $file && cp -f $file $HOME/.config/bg.png		        ;; # set wallpaper
+      "b") feh --no-fehbg --bg-scale $file && cp -f $file $HOME/.config/bg.png            ;; # set wallpaper
 		"l") betterlockscreen -u $file 	;; # set lockscreen wallpaper
-		"d") del $file 			        ;; # delete file
+		"d") trash -f $file 			        ;; # delete file
 		"c") echo $file | xclip -sel c	;; # copy image path
 	esac
 done

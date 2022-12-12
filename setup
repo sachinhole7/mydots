@@ -1,17 +1,82 @@
 #!/bin/bash
+  
+# install light weight aur helper 'pikaur'
+# git clone https://aur.archlinux.org/pikaur.git /tmp/pikaur
+# cd /tmp/pikaur && makepkg -si ; cd -
 
-# install packages from arch repository
-sudo pacman --needed --noconfirm -S $(grep "\[\*\]" pkg.txt | cut -d' ' -f2)
+# pikaur --noconfirm -S python-pywal timeshift
 
-# install packages from 'aur'
-baph -i $(grep "\[A\]" pkg.txt | cut -d' ' -f2)
+# install ulauncher
+# git clone https://aur.archlinux.org/ulauncher.git /tmp/ulauncher 
+# cd /tmp/ulauncher && makepkg -is ; cd -
 
-# create symlinks
+# install vimix cursor 
+# git clone https://github.com/vinceliuice/Vimix-cursors.git /tmp/vimix
+# cd /tmp/vimix && sudo bash install.sh ; cd -
 
-# bin 
-ln -sf $(pwd)/bin          ${HOME}/.local/
+# install grub theme
+# git clone https://github.com/johdasgran/jinx-theme.git /tmp/jinx
+# cd /tmp/jinx && sudo bash install.sh ; cd -
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-# alacritty 
-[[ -d ~/.config/alacritty ]] && rm -rf ~/.config/alacritty
-ln -sf $(pwd)/alacritty    ${HOME}/.config/
+# install packages 
+pkg_install() {
+   sudo pacman --needed --noconfirm -S $(cat packages)
+} 
 
+# developement environment
+dev_env() {
+   # dev tools list
+   dev_tools=(
+      code 
+      git
+      jdk-openjdk 
+      jre-openjdk
+      gcc
+      python3
+      python-pip 
+   )
+
+   # install tools 
+   sudo pacman --needed --noconfirm -S "${dev_tools[@]}"
+}
+
+# create directory if dot't exist
+[[ -d ${HOME}/pix ]]       || mkdir -p ${HOME}/{pix,docs,videos,download,public}
+[[ -d ${HOME}/.config ]]   || mkdir .config
+[[ -d ${HOME}/.vim ]]      || mkdir .vim
+
+link() { # create softlink
+ln -sf ${HOME}/.local/mydots/alacritty 		${HOME}/.config/
+ln -sf ${HOME}/.local/mydots/bspwm 		      ${HOME}/.config/
+ln -sf ${HOME}/.local/mydots/sxhkd 		      ${HOME}/.config/
+ln -sf ${HOME}/.local/mydots/sxiv            ${HOME}/.config/
+ln -sf $HOME/.local/mydots/mpd               ${HOME}/.config/
+ln -sf $HOME/.local/mydots/ncmpcpp           ${HOME}/.config/
+ln -sf $HOME/.local/mydots/polybar           ${HOME}/.config/
+ln -sf $HOME/.local/mydots/xfce4             ${HOME}/.config/
+
+ln -sf $HOME/.local/mydots/bin               ${HOME}/.local/
+
+ln -sf ${HOME}/.local/mydots/.xinitrc 		   ${HOME}/
+ln -sf ${HOME}/.local/mydots/.vimrc 	   	${HOME}/
+ln -sf ${HOME}/.local/mydots/vimplug 	   	${HOME}/.vim/   
+ln -sf ${HOME}/.local/mydots/user-dirs.dirs 	${HOME}/.config/   
+
+}
+
+# link
+# pkg_install
+
+show_help() {
+   echo "-------------------------------------------\n      help      \n-------------------------------------------"
+}
+
+while getopts ":hil:" option; do
+   case ${option} in
+      h) show_help && exit ;;                      # show help
+      l) link  ;;                                  # create softlink
+      i) pkg_install ;;                            # install packages
+     \?) echo "Err! Invalid option" && exit ;;     # invalid option
+  esac
+done
