@@ -1,52 +1,80 @@
 #!/bin/bash
   
-# install light weight aur helper 'pikaur'
-# git clone https://aur.archlinux.org/pikaur.git /tmp/pikaur
-# cd /tmp/pikaur && makepkg -si ; cd -
-
-# pikaur --noconfirm -S python-pywal timeshift
-
-# install ulauncher
-# git clone https://aur.archlinux.org/ulauncher.git /tmp/ulauncher 
-# cd /tmp/ulauncher && makepkg -is ; cd -
-
-# install vimix cursor 
-# git clone https://github.com/vinceliuice/Vimix-cursors.git /tmp/vimix
-# cd /tmp/vimix && sudo bash install.sh ; cd -
-
-# install grub theme
-# git clone https://github.com/johdasgran/jinx-theme.git /tmp/jinx
-# cd /tmp/jinx && sudo bash install.sh ; cd -
-# sudo grub-mkconfig -o /boot/grub/grub.cfg
-
 # install packages 
-pkg_install() {
-   sudo pacman --needed --noconfirm -S $(cat packages)
-} 
+function pkg_install() {
+   sudo pacman --needed --noconfirm -Syy "${pkg[@]}"
+}
 
-# developement environment
-dev_env() {
-   # dev tools list
-   dev_tools=(
-      code 
-      git
-      jdk-openjdk 
-      jre-openjdk
-      gcc
-      python3
-      python-pip 
-   )
+# install aur packages
+function pkg_aur() {
+   pikaur --noconfirm -S "${aur[@]}"
+}
 
-   # install tools 
+# install tools 
+function devtool_install() {
    sudo pacman --needed --noconfirm -S "${dev_tools[@]}"
 }
 
-# create directory if dot't exist
-[[ -d ${HOME}/pix ]]       || mkdir -p ${HOME}/{pix,docs,videos,download,public}
-[[ -d ${HOME}/.config ]]   || mkdir .config
-[[ -d ${HOME}/.vim ]]      || mkdir .vim
+# install light weight aur helper 'pikaur'
+function install_pikaur() {
+   git clone https://aur.archlinux.org/pikaur.git /tmp/pikaur
+   cd /tmp/pikaur && makepkg -si ; cd -
+}
 
-link() { # create softlink
+# install and setup openbox
+function setup_openbox() {
+   # install openbox and deps
+   sudo pacman --needed --noconfirm -Syy openbox menumaker rxvt-unicode lxappearance obconf plank picom
+  
+   # generate menu
+   mmaker openbox -f -t Alacritty && openbox  --reconfigure  
+
+   # install themes
+   git clone https://github.com/addy-dclxvi/openbox-theme-collections ~/.themes
+
+}
+
+# install ulauncher
+function install_ulauncher() {
+   git clone https://aur.archlinux.org/ulauncher.git /tmp/ulauncher 
+   cd /tmp/ulauncher && makepkg -is ; cd -
+}
+
+# install vimix cursor 
+function install_vimix() {
+   git clone https://github.com/vinceliuice/Vimix-cursors.git /tmp/vimix
+   cd /tmp/vimix && sudo bash install.sh ; cd -
+}
+
+# install grub theme
+function install_grubtheme() {
+   git clone https://github.com/johdasgran/jinx-theme.git /tmp/jinx
+   cd /tmp/jinx && sudo bash install.sh ; cd -
+   sudo grub-mkconfig -o /boot/grub/grub.cfg
+}
+
+# other
+function other() {
+   # update clamav database 
+   sudo freshclam
+
+}
+
+# enable services
+function enable_services() {
+   #sudo systemctl enable ly.service
+   sudo systemctl enable ufw.service
+   sudo systemctl enable clamav-freshclam.service
+   #sudo systemctl enable clamav-daemon.service
+   sudo systemctl enable auto-cpufreq.service
+}
+
+# create directory if don't exist
+[[ -d ${HOME}/pix ]]                || mkdir -p ${HOME}/{pix,docs,videos,music,download,public}
+[[ -d ${HOME}/.config ]]            || mkdir -p "${HOME}"/.config
+[[ -d ${HOME}/.vim/undodir ]]       || mkdir -p "${HOME}"/.vim/.undodir 
+
+function link() { # create softlink
 ln -sf ${HOME}/.local/mydots/alacritty 		${HOME}/.config/
 ln -sf ${HOME}/.local/mydots/bspwm 		      ${HOME}/.config/
 ln -sf ${HOME}/.local/mydots/sxhkd 		      ${HOME}/.config/
@@ -54,6 +82,8 @@ ln -sf ${HOME}/.local/mydots/sxiv            ${HOME}/.config/
 ln -sf $HOME/.local/mydots/mpd               ${HOME}/.config/
 ln -sf $HOME/.local/mydots/ncmpcpp           ${HOME}/.config/
 ln -sf $HOME/.local/mydots/polybar           ${HOME}/.config/
+ln -sf $HOME/.local/mydots/nvim 	     ${HOME}/.config/
+ln -sf $HOME/.local/mydots/openbox 	     ${HOME}/.config/
 ln -sf $HOME/.local/mydots/xfce4             ${HOME}/.config/
 
 ln -sf $HOME/.local/mydots/bin               ${HOME}/.local/
@@ -62,21 +92,140 @@ ln -sf ${HOME}/.local/mydots/.xinitrc 		   ${HOME}/
 ln -sf ${HOME}/.local/mydots/.vimrc 	   	${HOME}/
 ln -sf ${HOME}/.local/mydots/vimplug 	   	${HOME}/.vim/   
 ln -sf ${HOME}/.local/mydots/user-dirs.dirs 	${HOME}/.config/   
+ln -sf ${HOME}/.local/mydots/picom.conf 	   ${HOME}/.config/   
 
 }
 
-# link
-# pkg_install
 
-show_help() {
-   echo "-------------------------------------------\n      help      \n-------------------------------------------"
+# aur packages
+aur=(
+   python-pywal
+   timeshift
+   ly
+   auto-cpufreq
+
+)
+
+# dev tools list
+dev_tools=(
+  code 
+  git
+  jdk-openjdk 
+  jre-openjdk
+  gcc
+  python3
+  python-pip
+
+)
+
+# arch linux packages 
+pkg=(
+   xorg-server
+   xorg-xinit
+   xorg-xbacklight
+   xorg-apps
+   xdg-utils
+   xdg-user-dirs
+   xclip
+   pipewire
+   pipewire-jack
+   pipewire-alsa
+   pipewire-pulse
+   pulsemixer
+   wireplumber
+   htop
+   sxiv
+   git
+   trash-cli
+   zsh
+   zsh-completions 
+   zsh-syntax-highlighting 
+   zsh-autosuggestions
+   aria2
+   bash-completion
+   polkit
+   lxsession
+   lxqt-policykit
+   transmission-gtk
+   zola
+   ranger
+   rofi
+   rofi-calc
+   rofi-emoji
+   rofimoji
+   dmenu
+   fzf
+   polybar
+   dunst
+   feh
+   inotify-tools
+   man-db
+   zip
+   unzip
+   xarchiver
+   ueberzug
+   yt-dlp
+   dash
+   curl
+   wget
+   tmate
+   android-tools
+   obs-studio
+   papirus-icon-theme
+   gnome-themes-extra
+   lxappearance
+   qt5ct
+   ttf-dejavu
+   ttf-liberation
+   ttf-font-awesome
+   ttf-nerd-fonts-symbols-common
+   mpv
+   mpd
+   mpc
+   ncmpcpp
+   conky
+   alacritty
+   xfce4-terminal
+   leafpad
+   pcmanfm
+   mate-calc
+   firefox
+   vim
+   gparted
+   mtpfs
+   gvfs-mtp
+   gvfs-gphoto2
+   ntfs-3g
+   ytfzf
+   code
+   zathura
+   zathura-pdf-mupdf
+   zathura-djvu
+   blueman
+   glances
+   net-tools
+   picom
+   gimp
+   maim
+   gufw
+   clamav
+)
+
+# setup all
+function setup_all() {
+   choice=$(grep "^function" ${0} | grep -v "^function main" | awk '{print $2}' | cut -d\( -f1)
+   for cmd in "${choice}"; do
+      eval "${cmd}"
+   done
+   exit;
 }
 
-while getopts ":hil:" option; do
-   case ${option} in
-      h) show_help && exit ;;                      # show help
-      l) link  ;;                                  # create softlink
-      i) pkg_install ;;                            # install packages
-     \?) echo "Err! Invalid option" && exit ;;     # invalid option
-  esac
+[[ "${1}" == "all" ]] && setup_all
+
+# ---------------------------------------------------------------------------------------------------------------------------------
+choice=$(grep "^function" ${0} | grep -v "^function main" | awk '{print $2}' | cut -d\( -f1| fzf -m --prompt "Select multyple options: ")
+for cmd in "${choice}"; do
+   eval "${cmd}"
 done
+exit;
+# ---------------------------------------------------------------------------------------------------------------------------------

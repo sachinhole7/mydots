@@ -22,6 +22,7 @@ Plug 'skywind3000/vim-auto-popmenu'                   " popup completion menu au
 Plug 'skywind3000/vim-dict'                           " database for vim-auto-popmenu
 Plug 'vim-airline/vim-airline'                        " status bar
 Plug 'junegunn/goyo.vim'                              " distraction-free writing in Vim
+Plug 'vimwiki/vimwiki'                                " personal wiki for vim
 "
 call plug#end()
 "
@@ -32,6 +33,15 @@ let g:apc_enable_ft = {'*':1}
 "
 " markdown preview toggle switch
 map <C-p>  <Plug>MarkdownPreviewToggle 
+"
+" goyo
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+let g:goyo_height='80%'
+let g:goyo_width='80%'
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/docs/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 "
 " source for dictionary, current or other loaded buffers, see ':help cpt'
 set cpt=.,k,w,b,u,U,i,t

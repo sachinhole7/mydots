@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Check if the computer is running on AC power or on battery
+if [[ $(cat /sys/class/power_supply/ACAD/online) -eq 1 ]]; then
+# If AC power is detected, increase the screen brightness
+   xbacklight -set 70
+else
+# If running on battery, decrease the screen brightness
+   xbacklight -set 21
+fi
+        

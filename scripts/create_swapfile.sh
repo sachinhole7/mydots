@@ -3,8 +3,6 @@
 # exit on first error
 set -e
 
-echo hi > ~/hi
-
 # get filesystem type
 fstype=$(df -T / | tail -1 | cut -d' ' -f2)
 
@@ -12,10 +10,9 @@ fstype=$(df -T / | tail -1 | cut -d' ' -f2)
 root_partition=$(df --output=source / | tail -n 1)
 
 # set swapFile size ( = ram ) xG
-sfsize=8G
+sfsize=8
+sfsize=$((sfsize * 1024))
 
-# choose filesystem type and method accordingly
-[[ "${fstype}" == btrfs ]] && btrfs || [[ "${fstype}" == ext4  ]] && ext4 || exit 1
 
 #---------------------------------------------------------------------------------------------------------------
 
@@ -71,4 +68,40 @@ sudo findmnt --verify --verbose || sudo cp -f /etc/fstab.backup /etc/fstab
 echo vm.swappiness=10 | sudo tee /etc/sysctl.d/99-swappiness.conf
 
 }
+
+# create swapfile for ext4 filesystem 
+ext4 () {
+
+# cheak if swap already exists 
+[[ $(swapon -s) ]] && swapoff -a 
+
+# create swapfile 
+dd if=/dev/zero of=/swapfile bs=1M count="${sfsize}" 
+
+# set safer permissions on swapfile 
+chmod 600 /swapfile 
+
+# make swap 
+mkswap /swapfile
+
+# on swapfile 
+swapon /swapfile && swapon --show
+
+# backup '/etc/fstab'
+cp /etc/fstab /etc/fstab.bak
+
+# make swapfile persistent
+echo '/swapfile none    swap    defaults 0 0' | tee -a /etc/fstab 
+
+# veryfy everything ok in '/etc/fstab'
+findmnt --verify --verbose || sudo cp -f /etc/fstab.bak /etc/fstab
+
+ # set swappines to improve performance
+ echo vm.swappiness=30 | tee /etc/sysctl.d/99-swappiness.conf
+
+}
+
+# choose filesystem type and method accordingly
+[[ "${fstype}" == btrfs ]] && btrfs || [[ "${fstype}" == ext4  ]] && ext4 || exit 1
+
 #---------------------------------------------------------------------------------------------------------------

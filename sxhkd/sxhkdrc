@@ -32,7 +32,7 @@ super + p
 
 # image viewvier (sxiv)
 super + i
-	sxiv -btg 1047x570 /usr/share/backgrounds/* pix/walls/*	
+	sxiv -btg 1047x570 /usr/share/backgrounds/* $HOME/pix/walls/* $HOME/pix/wallpapers/*
 
 # screenkey toggle
 super + shift + K
@@ -164,14 +164,14 @@ alt + j
   ~/.config/sxhkd/resize.sh down 
 
 #--- arrow keys -------------------------------
-alt + Right
-  ~/.config/sxhkd/resize.sh right
-alt + Left
-   ~/.config/sxhkd/resize.sh left
-alt + Up
-   ~/.config/sxhkd/resize.sh up
-alt + Down
-   ~/.config/sxhkd/resize.sh down
+#alt + Right
+#  ~/.config/sxhkd/resize.sh right
+#alt + Left
+#   ~/.config/sxhkd/resize.sh left
+#alt + Up
+#   ~/.config/sxhkd/resize.sh up
+#alt + Down
+#   ~/.config/sxhkd/resize.sh down
 
 
 
