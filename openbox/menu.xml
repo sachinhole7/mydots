@@ -16,6 +16,9 @@
             </action> </item>
         </menu>
         <menu id="2" label="Editors">
+            <item label="AA Fire"> <action name="Execute">
+                <execute>alacritty -e aafire -driver slang</execute>
+            </action> </item>
             <item label="Leafpad"> <action name="Execute">
                 <execute>leafpad</execute>
             </action> </item>
@@ -83,6 +86,14 @@
         <menu id="3" label="Office">
             <item label="Zathura"> <action name="Execute">
                 <execute>zathura</execute>
+            </action> </item>
+        </menu>
+        <menu id="4" label="Science">
+            <item label="bc"> <action name="Execute">
+                <execute>alacritty -e bc</execute>
+            </action> </item>
+            <item label="dc"> <action name="Execute">
+                <execute>alacritty -e dc</execute>
             </action> </item>
         </menu>
         <menu id="19" label="Shells">
@@ -159,6 +170,12 @@
             </menu>
             <item label="Avahi Zeroconf Browser"> <action name="Execute">
                 <execute>avahi-discover</execute>
+            </action> </item>
+            <item label="conky"> <action name="Execute">
+                <execute>conky --daemonize --pause=1</execute>
+            </action> </item>
+            <item label="Conky"> <action name="Execute">
+                <execute>alacritty -e conky</execute>
             </action> </item>
             <item label="GParted"> <action name="Execute">
                 <execute>gparted</execute>

@@ -1,5 +1,9 @@
 #!/bin/bash
-  
+
+MYDOTS="${HOME}/.local/mydots"
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
 # install packages 
 function pkg_install() {
    sudo pacman --needed --noconfirm -Syy "${pkg[@]}"
@@ -7,7 +11,7 @@ function pkg_install() {
 
 # install aur packages
 function pkg_aur() {
-   pikaur --noconfirm -S "${aur[@]}"
+   pikaur --noconfirm -S --needed "${aur[@]}"
 }
 
 # install tools 
@@ -21,10 +25,18 @@ function install_pikaur() {
    cd /tmp/pikaur && makepkg -si ; cd -
 }
 
+# install wayland sway
+function setu_sway() {
+   sudo pacman --needed --noconfirm -S sway swaybg swaylock swayidle wayland xorg-xwayland brightnessctl grim 
+   
+   # start sway 
+   #[[ $(grep "exec sway" ${HOME}/.bashrc) ]] || sed 's/startx/sway/g' ${HOME}/.bashrc 
+}
+
 # install and setup openbox
 function setup_openbox() {
    # install openbox and deps
-   sudo pacman --needed --noconfirm -Syy openbox menumaker rxvt-unicode lxappearance obconf plank picom
+   sudo pacman --needed --noconfirm -Syy openbox menumaker rxvt-unicode lxappearance obconf plank picom qt5ct
   
    # generate menu
    mmaker openbox -f -t Alacritty && openbox  --reconfigure  
@@ -32,18 +44,6 @@ function setup_openbox() {
    # install themes
    git clone https://github.com/addy-dclxvi/openbox-theme-collections ~/.themes
 
-}
-
-# install ulauncher
-function install_ulauncher() {
-   git clone https://aur.archlinux.org/ulauncher.git /tmp/ulauncher 
-   cd /tmp/ulauncher && makepkg -is ; cd -
-}
-
-# install vimix cursor 
-function install_vimix() {
-   git clone https://github.com/vinceliuice/Vimix-cursors.git /tmp/vimix
-   cd /tmp/vimix && sudo bash install.sh ; cd -
 }
 
 # install grub theme
@@ -74,28 +74,52 @@ function enable_services() {
 [[ -d ${HOME}/.config ]]            || mkdir -p "${HOME}"/.config
 [[ -d ${HOME}/.vim/undodir ]]       || mkdir -p "${HOME}"/.vim/.undodir 
 
-function link() { # create softlink
-ln -sf ${HOME}/.local/mydots/alacritty 		${HOME}/.config/
-ln -sf ${HOME}/.local/mydots/bspwm 		      ${HOME}/.config/
-ln -sf ${HOME}/.local/mydots/sxhkd 		      ${HOME}/.config/
-ln -sf ${HOME}/.local/mydots/sxiv            ${HOME}/.config/
-ln -sf $HOME/.local/mydots/mpd               ${HOME}/.config/
-ln -sf $HOME/.local/mydots/ncmpcpp           ${HOME}/.config/
-ln -sf $HOME/.local/mydots/polybar           ${HOME}/.config/
-ln -sf $HOME/.local/mydots/nvim 	     ${HOME}/.config/
-ln -sf $HOME/.local/mydots/openbox 	     ${HOME}/.config/
-ln -sf $HOME/.local/mydots/xfce4             ${HOME}/.config/
 
-ln -sf $HOME/.local/mydots/bin               ${HOME}/.local/
+function linkdots() {
 
-ln -sf ${HOME}/.local/mydots/.xinitrc 		   ${HOME}/
-ln -sf ${HOME}/.local/mydots/.vimrc 	   	${HOME}/
-ln -sf ${HOME}/.local/mydots/vimplug 	   	${HOME}/.vim/   
-ln -sf ${HOME}/.local/mydots/user-dirs.dirs 	${HOME}/.config/   
-ln -sf ${HOME}/.local/mydots/picom.conf 	   ${HOME}/.config/   
+for FILE in ${LINKS[@]}; do 
+   
+   # get file name from fullpath
+   BASE=$(basename ${FILE})
 
+   # is file exists
+   if [[ $(ls -ld ${FILE} 2>1) ]]; then
+      rm -rf ${FILE} && ln -sf ${MYDOTS}/${BASE} ${FILE}
+      echo "R ${MYDOTS}/${BASE}       -->  ${FILE}"
+   else 
+      ln -sf ${MYDOTS}/${BASE} ${FILE}
+      echo "  ${MYDOTS}/${BASE}       -->  ${FILE}"
+   fi
+done
+   
 }
 
+# file loaction
+LINKS=(
+  
+  ${HOME}/.vimrc
+  ${HOME}/.xinitrcbash take arguments like c language
+  ${HOME}/.vim/vimplug
+  
+  ${HOME}/.local/bin
+
+  ${HOME}/.config/xfce4
+  ${HOME}/.config/alacritty
+  ${HOME}/.config/bspwm
+  ${HOME}/.config/sxhkd
+  ${HOME}/.config/sxiv
+  ${HOME}/.config/mpd
+  ${HOME}/.config/ncmpcpp
+  ${HOME}/.config/polybar
+  ${HOME}/.config/sway
+  ${HOME}/.config/nvim
+  ${HOME}/.config/openbox
+  ${HOME}/.config/rofi
+  ${HOME}/.config/shell
+  ${HOME}/.config/picom.conf
+  ${HOME}/.config/user-dirs.dirs
+
+)
 
 # aur packages
 aur=(
@@ -103,19 +127,25 @@ aur=(
    timeshift
    ly
    auto-cpufreq
-
+   betterlockscreen 
+   nerd-fonts-jetbrains-mono
+   vimix-gtk-themes 
+   vimix-cursors 
+   vimix-icon-theme
+   quickemu
+   ttf-ms-fonts
+   ulauncher
 )
 
 # dev tools list
 dev_tools=(
-  code 
-  git
-  jdk-openjdk 
-  jre-openjdk
-  gcc
-  python3
-  python-pip
-
+   code 
+   git
+   jdk-openjdk 
+   jre-openjdk
+   gcc
+   python3
+   python-pip
 )
 
 # arch linux packages 
@@ -155,6 +185,8 @@ pkg=(
    rofimoji
    dmenu
    fzf
+   ffmpeg
+   imagemagick
    polybar
    dunst
    feh
@@ -208,7 +240,8 @@ pkg=(
    gimp
    maim
    gufw
-   clamav
+   clamav 
+   bat 
 )
 
 # setup all
@@ -220,12 +253,15 @@ function setup_all() {
    exit;
 }
 
-[[ "${1}" == "all" ]] && setup_all
-
 # ---------------------------------------------------------------------------------------------------------------------------------
-choice=$(grep "^function" ${0} | grep -v "^function main" | awk '{print $2}' | cut -d\( -f1| fzf -m --prompt "Select multyple options: ")
-for cmd in "${choice}"; do
-   eval "${cmd}"
-done
-exit;
+main() {
+   choice=$(grep "^function" ${0} | grep -v "^function main" | awk '{print $2}' | cut -d\( -f1| fzf -m --prompt "Select multyple options: ")
+   for cmd in "${choice}"; do
+      eval "${cmd}"
+   done
+   exit;
+}
+
+[[ "${1}" == "all" ]] && setup_all
+[[ ${1} ]] && ${1} || main ; exit 0 
 # ---------------------------------------------------------------------------------------------------------------------------------

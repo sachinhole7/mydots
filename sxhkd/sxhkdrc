@@ -1,13 +1,10 @@
-## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
-## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
-
-##---------- Keybindings for bspwm ----------##
+# global key bindings  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  
 
 # Terminal (alacritty)
 super + Return
 	alacritty
 
-##---------- Rofi Launcher & Menus ----------##
+# rofi launcher & menus  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 # Rofi App Launcher
 super + {d,r,c,e,n,w,s} 
@@ -16,15 +13,15 @@ super + {d,r,c,e,n,w,s}
 alt + c
 	rofi-menu clip
 
-##---------- Applications ----------##
+# applications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 # Launch Apps
 super + shift + {f,w,e}
-	{pcmanfm,firefox,geany}
+	{pcmanfm,firefox,code}
 
 # Terminal Apps
-ctrl + alt + {v,n,r,h,b}
-	alacritty --config-file ~/.config/bspwm/alacritty/alacritty.yml -e {vim,nvim,ranger,htop,bashtop}
+ctrl + alt + {v,n,r,h,g}
+	alacritty -e {vim,nvim,ranger,htop,glances}
 
 # Color Picker
 super + p
@@ -38,7 +35,16 @@ super + i
 super + shift + K
     {screenkey --opacity 0.2 --font-color yellow -s small, killall screenkey}
 
-##---------- System Keys ----------##
+# web applications - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+super + alt + t
+   xdg-open https://www.typing.com/student/lessons
+
+# system keys - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+# make sxhkd reload its configuration files:
+super + shift + r
+	pkill -USR1 -x sxhkd
 
 # Take a screenshot
 Print
@@ -46,30 +52,30 @@ Print
 	
 # Take screenshot in 5 second
 alt + Print	
-	maim -s ~/pix/shot:$(date +%s).png
+	maim -d 5 ~/pix/shot:$(date +%s).png
 
 # Take screenshot in 10 second
 shift + Print	
-	takeshot --in10
+	maim -d 10 ~/pix/shot:$(date +%s).png
 
 # Take screenshot of active window
 ctrl + Print
-	takeshot --win
+	maim  ~/pix/shot:$(date +%s).png
 
 # Take screenshot of area
 ctrl + alt + Print
-	takeshot --area
+	maim -b 2 -s ~/pix/shot:$(date +%s).png
 
 # Brighness control
 XF86MonBrightness{Up,Down}
-	brightness{ --inc, --dec}
+	xbacklight{ --inc 5, --dec 5}
 	
 # Volume control
 XF86Audio{RaiseVolume,LowerVolume}
-	volume{ --inc, --dec}
+	pulsemixer{ --change-volume +5, --change-volume -5 }
 
 XF86AudioMute
-	volume --toggle
+	pulsemixer --toggle-mute
 	
 # Music control
 XF86Audio{Next,Prev,Play,Stop}
@@ -80,98 +86,5 @@ super + b
     {polybar-msg cmd hide && bspc config top_padding +0 ,\
     polybar-msg cmd show && bspc config top_padding 28}
 
-##---------- Bspwm ----------##
-
-# Close App
-super + {_,shift + }q
-	bspc node -{c,c}
-
-# Reload Keybindings
-super + Escape
-	pkill -USR1 -x sxhkd
-
-# kill window
-ctrl + alt + Escape
-    xkill
-
-# Quit/Restart bspwm
-ctrl + shift + {q,r}
-	bspc {quit,wm -r}
-	
-# Split horizontal, vertical or cancel
-super + {h,v,q}
-	bspc node -p {east,south,cancel}
-
-# Preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
-
-# Fullscreen or Monocle
-super + f
-#	bspc desktop -l next
-    bspc node -t "~"fullscreen
-
-# Toggle beetwen floating & tiled
-super + space
-    bspc node -t "~"{floating,tiled}
-
-# Pseudo Tiled & tiled mode
-super + shift + space
-#super + {p,t}
-    bspc node -t "~"{pseudo_tiled,tiled}
-
-# Set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
-
-# Send the window to another edge of the screen
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
-
-# Change focus to next window, including floating window
-alt + {_,shift + }Tab
-	bspc node -f {next.local,prev.local}
-
-# Switch workspace
-ctrl + alt + {Left,Right}
-	bspc desktop -f {prev.local,next.local}
-
-# Switch to last opened workspace
-super + {Tab,grave}
-	bspc {node,desktop} -f last
-
-# Send focused window to another workspace
-super + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}'
-
-## Move floating windows
-alt + shift + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-# Hide/Unhide Window
-super + shift + i
-	winmask		
-
-# Resize windows
-# i3 like resizing [Link]: https://github.com/zim0369/bspwm_i3size 
-alt + l 
- ~/.config/sxhkd/resize.sh right
-alt + h
- ~/.config/sxhkd/resize.sh left
-alt + k
-  ~/.config/sxhkd/resize.sh up
-alt + j
-  ~/.config/sxhkd/resize.sh down 
-
-#--- arrow keys -------------------------------
-#alt + Right
-#  ~/.config/sxhkd/resize.sh right
-#alt + Left
-#   ~/.config/sxhkd/resize.sh left
-#alt + Up
-#   ~/.config/sxhkd/resize.sh up
-#alt + Down
-#   ~/.config/sxhkd/resize.sh down
-
-
+# global key bindings  = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  
 

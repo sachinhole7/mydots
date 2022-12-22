@@ -1,14 +1,15 @@
 #!/bin/bash
 
-while inotifywait -q ${1}; do
+#while inotifywait -q ${1}; do
     clear
     case ${1} in
-        *.js) node ${1} ;;
-        *.c ) cc ${1} -o code && ./code ;;
-        *.cpp) g++ ${1} -0 ccode   ;;
-        *.py) python ${1}   ;;
-        *.html) xdg-open ${1} ;;
-        *) echo " > this file format is not suported." ; exit ;;
+        *.js) node ${1}                                                 ;;
+        *.c ) cc ${1} -o code && ./code                                 ;;
+       *.cpp) g++ ${1} -o ccode && ./ccode                              ;;
+        *.py) python ${1}                                               ;;
+      *.html) xdg-open ${1}                                             ;;
+      *.java) javac ${1} && java $(echo ${1} | cut -d'.' -f1)           ;;
+           *) echo " > this file format is not suported." ; exit        ;;
     esac 
-done
+#done
 

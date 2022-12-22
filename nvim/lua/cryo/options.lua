@@ -28,6 +28,7 @@ vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.signcolumn = "yes"
 vim.opt.guicursor = ""
+vim.opt.signcolumn = "number"
 
 -- backspace
 vim.opt.backspace = "indent,eol,start"

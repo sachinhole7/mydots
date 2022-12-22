@@ -7,3 +7,4 @@ require "cryo.lualine"
 require "cryo.telescope"
 require "cryo.treesitter"
 require "cryo.lsp"
+

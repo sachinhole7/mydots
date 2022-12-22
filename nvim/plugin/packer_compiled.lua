@@ -115,6 +115,11 @@ _G.packer_plugins = {
     path = "/home/sachin/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
+  ["dashboard-nvim"] = {
+    loaded = true,
+    path = "/home/sachin/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
+    url = "https://github.com/glepnir/dashboard-nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/sachin/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -200,6 +205,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/sachin/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-floaterm"] = {
+    loaded = true,
+    path = "/home/sachin/.local/share/nvim/site/pack/packer/start/vim-floaterm",
+    url = "https://github.com/voldikss/vim-floaterm"
   }
 }
 
