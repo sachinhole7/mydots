@@ -1,0 +1,6 @@
+# openbox autostart = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+# sxhkd (simple x hotkey daemon)
+exec sxhkd &
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
