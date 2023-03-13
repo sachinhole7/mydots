@@ -1,0 +1,8 @@
+#!/bin/bash 
+
+# check telebi is enabled
+isOn() {
+    [[ $(telebit status | grep active | awk '{print $2}' | tr -d ',') == "true" ]] && echo ""
+}
+
+"${1}"

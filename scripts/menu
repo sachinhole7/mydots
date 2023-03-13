@@ -1,0 +1,57 @@
+#!/bin/bash 
+
+# = list items = = =
+LIST=(${*})
+LENGTH_OF_ARRAY=${#LIST[*]}
+INDEX=1
+
+# = keys = = =
+UP="A"
+DOWN="B"
+ENTER=""
+EXIT="q"
+
+# = help = = = 
+function help() {
+   echo " mneu > list items <"
+   exit 1
+}
+
+[[ "${1}" ]] || help
+
+# = print menu = = =
+function map() {
+   index=0
+   for item in "${LIST[@]}"; do
+      index=$((index + 1))
+      if [[ "${1}" == "${index}" ]]; then 
+         echo -e "\e[106;90;1m ${item} \e[0m"
+      else
+         echo -e "\e[31m ${item} \e[0m" 
+      fi
+   done
+}
+
+# = read input = = =
+function getKey() {
+   read -n1 -r KEY;
+   echo ${KEY}
+   [[ "${KEY}" ]] && echo "DONE"
+}
+
+# = main = = = 
+map 1
+while true ; do
+   set echo off
+   read -r -n1 KEY
+   set echo on
+   printf '\033c';
+   case "${KEY}" in
+      "j"|"$DOWN") [[ "${INDEX}" -lt "${LENGTH_OF_ARRAY}" ]] && ((INDEX++)) || INDEX=1    ;;
+        "k"|"$UP") [[ "${INDEX}" -gt 1 ]] && ((INDEX--)) || INDEX="${LENGTH_OF_ARRAY}"    ;;
+         "$ENTER") echo ${LIST[${INDEX} - 1]} ; exit   ;;
+          "$EXIT") exit ;;
+                *) echo "" ;;
+   esac
+   map "${INDEX}"
+done

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="pointers" version="1.0">
+  <property name="HID_1bcf08a0_Keyboard" type="empty">
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="5"/>
+    <property name="Acceleration" type="double" value="1.8999999999999999"/>
+  </property>
+</channel>

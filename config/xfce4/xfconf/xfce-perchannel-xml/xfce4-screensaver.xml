@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-screensaver" version="1.0">
+  <property name="saver" type="empty">
+    <property name="mode" type="int" value="2"/>
+    <property name="themes" type="empty">
+      <property name="list" type="array">
+        <value type="string" value="screensavers-xfce-personal-slideshow"/>
+      </property>
+    </property>
+  </property>
+  <property name="screensavers" type="empty">
+    <property name="xfce-personal-slideshow" type="empty">
+      <property name="location" type="string" value="/home/sachin/pix"/>
+      <property name="arguments" type="string" value="--location=/home/sachin/pix"/>
+      <property name="background-color" type="string" value="#181616"/>
+      <property name="no-stretch" type="bool" value="true"/>
+    </property>
+  </property>
+</channel>

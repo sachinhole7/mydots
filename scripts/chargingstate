@@ -1,0 +1,20 @@
+#!/bin/sh
+
+export XAUTHORITY=/home/sachin/.Xauthority
+export DISPLAY=:0
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+
+# sleep for 1 sec to avoid wrong data
+/usr/bin/sleep 1
+
+# Pass 1 as an argument for charging, 0 for discharging
+BATTERY_CHARGING=$1
+BATTERY_LEVEL=$(cat /sys/class/power_supply/BAT1/capacity)
+BATTERY_TIME=$(acpi | cut -d' ' -f5-)
+
+# Send notifications
+if [ "$BATTERY_CHARGING" -eq 1 ]; then
+    /usr/bin/notify-send "Charging" "${BATTERY_LEVEL}% Battery, ${BATTERY_TIME}" -u low -i charging -t 5000 -r 9991
+elif [ "$BATTERY_CHARGING" -eq 0 ]; then
+    /usr/bin/notify-send "Discharging" "${BATTERY_LEVEL}% Battery, ${BATTERY_TIME}" -u low -i discharging -t 5000 -r 9991
+fi

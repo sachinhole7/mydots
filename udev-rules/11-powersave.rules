@@ -1,2 +1,16 @@
+
+# notify and decrease screen brightness
 ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="0", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/sachin/.Xauthority", RUN+="/home/sachin/.local/bin/powersave"
+
+# notify and increase screen brightness
 ACTION=="change", SUBSYSTEM=="power_supply", ATTR{type}=="Mains", ATTR{online}=="1", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/sachin/.Xauthority", RUN+="/home/sachin/.local/bin/powersave"
+
+# notify the user when battery is fully charged
+SUBSYSTEM=="power_supply", ATTR{status}=="Full", ATTR{capacity}=="[100]", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/sachin/.Xauthority", RUN+="/home/sachin/.local/bin/batterystate"
+
+# notyfy the user when battery percentage is below 10%
+SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-10]", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/sachin/.Xauthority", RUN+="/home/sachin/.local/bin/batterystate"
+
+# Execute when HDMI cable is plugged in or unplugged
+ACTION=="change", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/username/.Xauthority", RUN+="/home/sachin/.local/bin/exmon"
+

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+ROFI_THEME="${HOME}/.config/rofi/wifi.rasi"
+
+notify-send -r 234 "Getting available Bluetooth devices" -i bluetooth
+
+if ! bluetoothctl power on; then 
+   notify-send "Unable to connect"
+   exit 1
+fi
+# scan for devices 
+bluetoothctl --timeout 5 scan on
+
+# Get a list of available wifi connections and morph it into a nice-looking list
+bluetooth_list=$(bluetoothctl devices | awk '{print " "$3"\t"$2}' | sed 's/^/ /g' )
+echo $bluetooth_list
+# check bluetooth status
+powered=$(bluetoothctl show | grep Powered | cut -d' ' -f2 )
+[[ "$powered" == "yes" ]] && toggle="  Disable Bluetooth" || toggle="  Enable Bluetooth"
+
+chosen_dev=$(printf "$toggle\n$bluetooth_list" | uniq -u | rofi -dmenu -i -selected-row 1 -p "Bluetooth Device: " -theme "${ROFI_THEME}" | awk '{print $3}')
+if [[ "${chosen_dev}" == "$(bluetoothctl devices Connected | awk '{print $3}')" ]];  then 
+   notify-send -r 234 "$(bluetoothctl devices Connected | cut -d' ' -f3) is already connected" -i bluetooth
+elif [[ $(echo ${chosen_dev} | grep ":" ) ]]; then
+   bluetoothctl connect ${chosen_dev} && notify-send -r 234 "Bluetooth Connected" -i bluetooth
+fi
+
+case "${chosen_dev}" in 
+   "Disable")  bluetoothctl power off && notify-send -r 234 "Bluetooth Disabled" -i bluetooth-off ;;
+    "Enable")  bluetoothctl power on      ;;
+           *)  exit 1                     ;;
+esac
+

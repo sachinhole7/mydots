@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Notion
+Exec=brave --app="https://notion.so/"  %f
+Icon=notion
+Terminal=false
+Type=Application

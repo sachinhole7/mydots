@@ -1,0 +1,58 @@
+# eniviroment variables = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+export EDITOR=nvim
+
+# aliases = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+# aliaces 
+alias fzf='fzf --border bold'
+alias rm='trash'
+alias lf='lfub'
+alias bin='$HOME/.local/bin'
+
+alias cat='bat -p'
+
+#list
+alias ls='ls --color=auto'
+alias la='ls -a'
+alias ll='ls -alFh'
+alias l='ls'
+alias l.="ls -A | egrep '^\.'"
+alias listdir="ls -d */ > list"
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# update grup
+alias grub-update='grub-mkconfig -o /boot/grub/grub.cfg'
+
+# ssh into termux vivo
+ss() {
+    [[ "${1}" == "vivo"   ]] && ssh uO_a24O@100.99.126.191 -p 8022
+    [[ "${1}" == "ubuntu" ]] && ssh root@172.17.0.2 -p 8022
+}
+
+# open file 
+fd(){
+    file=$(find ${HOME}/.local/mydots -type f | fzf --prompt "choose file to open: " --preview 'cat {}')   
+    [[ ${file} ]] && ${EDITOR} ${file}
+}
+
+# doit 
+echo "= = = * $(doit task) * = = =" | bat -pl c
+
+# node version manager
+nvm() {
+    export NVM_DIR="$HOME/.config/nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+}
+
+# start Hyprland
+[[ $(pgrep Hyprland) ]] || exec /home/sachin/.config/hypr/hyprstart 
+
+# start xorg-server
+# [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
+

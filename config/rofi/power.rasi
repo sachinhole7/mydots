@@ -1,0 +1,50 @@
+* {
+  bg: #11121D;
+  bg-alt: #444b6a;
+
+  fg: #FFFFFF;
+  fg-alt: #787c99;
+
+  background-color: @bg;
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  width:    8%;
+  height:   20%;
+  location: east south;  
+  x-offset: -1%;
+  y-offset: -2%;
+}
+
+element {
+  padding: 8 0;
+  text-color: @fg-alt;
+}
+
+element selected {
+  text-color: @fg;
+}
+
+element-text {
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+listview {
+  padding: 10 10;
+  background-color: @bg;
+  columns: 1;
+  lines: 4;
+}
+
+mainbox {
+  background-color: @bg;
+  children: [listview];
+}
+
+/* vim: ft=sass

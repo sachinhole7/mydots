@@ -1,0 +1,19 @@
+
+* {
+bg: #11121D;
+bgAlt: #444b6a;
+fg: #FFFFFF;
+fg-alt: #787c99;
+
+//bg: #1E222A;
+//bgAlt: #252931;
+//fg: #61AFEF;
+button: #252931;
+background-color: @bg;
+text-color: @fg;
+}
+
+configuration {
+  font: "FiraCode Nerd Font 13";
+}
+

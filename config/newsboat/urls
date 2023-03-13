@@ -1,0 +1,27 @@
+# linux = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+https://archlinux.org/feeds/news/ news linux  "~Arch Linux News"
+https://bugswriter.com/videos.xml video linux yt
+https://bugswriter.com/blog/atom.xml blog linux "~BugsWrite's Website"
+https://lukesmith.xyz/index.xml blog linux 
+
+https://www.reddit.com/r/linux.rss linux reddit 
+https://www.youtube.com/feeds/videos.xml?channel_id=UCW6xlqxSY3gGur4PkGPEUeA cybr video yt
+
+# code = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+https://medium.com/feed/@spencer-carli react code 
+https://reactjs.org/feed.xml react code 
+
+# youtube videos = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7adUjW8qMUsqO4HHTbwKgg news video yt
+
+# news = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+https://www.reddit.com/r/india.rss news india reddit
+https://isc.sans.edu/rssfeed_full.xml news
+https://mosfet.net/feed news tech
+
+# reddit = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+https://www.reddit.com/r/Nootropics.rss reddit neuro med
+
+# podcast = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+https://feeds.megaphone.fm/darknetdiaries podcast cybr
+https://feeds.transistor.fm/scrimba podcast code
