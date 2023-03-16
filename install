@@ -1,0 +1,222 @@
+#!/bin/bash
+
+# = = =
+MYDOTS="${HOME}/.local/mydots"
+BACKUP_DIR="${HOME}/.config/config.old"
+# = = =
+
+# = arch packages = = = 
+pkg=(
+   # x11 = = =
+   xorg-server xorg-xinit xorg-xbacklight xorg-apps xdg-utils xdg-user-dirs xclip xsel 
+   xdotool
+
+   # wayland = = =
+   wayland wayland-utils xorg-xwayland brightnessctl swaybg qt5-wayland qt6-wayland
+   clipman
+
+   # network = = =
+   networkmanager gufw
+   bluez bluez-utils blueman
+
+   # audio = = =
+   pipewire pipewire-jack pipewire-alsa pipewire-pulse wireplumber pulsemixer pamixer 
+   
+   # shell = = =
+   zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions bash-completion dash
+   
+   # terminal = = = 
+   alacritty kitty foot
+   
+   # browser = = =
+   firefox brave w3m
+   
+   # filemanager = = = 
+   pcmanfm lf
+
+   # menu/launcher = = =
+   rofi-calc rofi-emoji rofimoji dmenu fzf
+
+   # office = = =
+   zathura zathura-pdf-mupdf zathura-djvu libmupdf
+
+   # graphics = = = 
+   gimp sxiv
+
+   # theme = = =
+   papirus-icon-theme gnome-themes-extra vimix-cursors vimix-gtk-themes-git vimix-cursors 
+   lxappearance qt5ct
+
+   # fonts = = =
+   ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-dejavu ttf-liberation ttf-font-awesome 
+   ttf-nerd-fonts-symbols-common noto-fonts-emoji
+
+   # multimedia = = =
+   mpv mpd mpc playerctl ncmpcpp
+   
+   # dev = = =
+   code vim neovim git gcc python3 python-pip
+
+   # system = = =
+   htop glances conky gparted mtpfs gvfs-mtp gvfs-gphoto2 ntfs-3g man-db doas polkit 
+   lxsession lxqt-policykit picom
+
+   # utils = = =
+   curl wget zip unzip net-tools bat xarchiver ueberzug trash-cli flameshot entr
+
+   # extra = = = 
+   ytfzf clamav ffmpeg imagemagick polybar dunst feh inotify-tools vnstat yt-dlp tmate 
+   android-tools scrcpy aria2 transmission-gtk v4l2loopback-dkms
+   
+   # arch user repository = = =
+   python-pywal timeshift ly auto-cpufreq betterlockscreen ttf-ms-fonts wkhtmltopdf-static  
+   xdg-desktop-portal-hyprland-git hyprpicker-git
+)
+
+# = configuration file location
+LINKS=(
+    # "${HOME}"/.bashrc
+    "${HOME}"/.vimrc
+    "${HOME}"/.xinitrc
+    "${HOME}"/.vim/vimplug
+    "${HOME}"/.local/bin
+    "${HOME}"/.config/dunst
+    "${HOME}"/.config/xfce4
+    "${HOME}"/.config/alacritty
+    "${HOME}"/.config/foot
+    "${HOME}"/.config/sxhkd
+    "${HOME}"/.config/sxiv
+    "${HOME}"/.config/mpd
+    "${HOME}"/.config/ncmpcpp
+    "${HOME}"/.config/polybar
+    "${HOME}"/.config/waybar
+    "${HOME}"/.config/nvim
+    "${HOME}"/.config/rofi
+    "${HOME}"/.config/lf
+    "${HOME}"/.config/shell
+    "${HOME}"/.config/newsboat
+    "${HOME}"/.config/picom.conf
+    "${HOME}"/.config/user-dirs.dirs
+    
+    "${HOME}"/.config/bspwm
+)
+
+# = create directory if don't exist = = =
+[[ -d ${HOME}/pix ]]                || mkdir -p ${HOME}/{pix,docs,videos,music,download,public}
+[[ -d ${HOME}/.config ]]            || mkdir -p "${HOME}"/.config
+[[ -d ${HOME}/.vim/undodir ]]       || mkdir -p "${HOME}"/.vim/.undodir
+
+# = install aur helper (pikaur) = = =
+function aurHelper() {
+   git clone https://aur.archlinux.org/pikaur.git /tmp/pikaur 
+   cd /tmp/pikaur && makepkg -si ; cd -
+}
+
+# = install arch packages = = =
+function pkgInstall() {
+   pikaur -S --needed "${pkg[@]}"
+}
+
+# = setup dotfiles = = =
+function setupDotfiles() {
+    
+    # cheack mydotfile directory exist's
+    if [[ ! -d "${MYDOTS}" ]]; then 
+        read -rp " mydotfile directory not found, Do you want to clone it ? [Y/n]: " ans
+        [[ "$ans" == "Y" ]] || [[ "$ans" == "y" ]] && git clone "${DOTFILE_URL}" "${MYDOTS}" || exit 1 
+    fi
+
+    # link script directory
+    [[ $(find .local/scripts -type l) ]] || ln -sf "${MYDOTS}"/scripts "${HOME}"/.local/scripts
+
+    for FILE in "${LINKS[@]}"; do
+
+    # backup dir
+    [[ -d "${BACKUP_DIR}" ]] || mkdir -p "${BACKUP_DIR}"
+
+    # get file name from fullpath
+    BASE=$(basename ${FILE})
+
+    # check if already linked
+    if [[ $(find "${FILE}" -type l 2>/dev/null) ]]; then
+        echo -e "  ${FILE}  \e[34m--> \e[33mfile already linked\e[0m"
+        continue
+    fi
+
+    # 
+    if [[ $(ls -ld "${MYDOTS}"/config/"${BASE}" 2>/dev/null) ]]; then
+       [[ $(ls ${FILE} 2>/dev/null) ]] && mv -f "${FILE}" "${BACKUP_DIR}"
+    else 
+       [[ $(ls ${FILE} 2>/dev/null) ]] && mv -i "${FILE}" "${MYDOTS}"/config
+    fi
+
+    # is file exists
+    if [[ $(ls -ld "${FILE}" 2>/dev/null ) ]]; then
+        rm -rf "${FILE}" && ln -sf "${MYDOTS}"/config/"${BASE}" "${FILE}"
+        echo -e "R ${MYDOTS}/config/${BASE}  \e[34m-->  \e[32m${FILE}\e[0m"
+    else
+        ln -sf ${MYDOTS}/config/${BASE} ${FILE}
+        echo -e "  ${MYDOTS}/config/${BASE}  \e[34m-->  \e[32m${FILE}\e[0m"
+    fi
+
+    done # - - - 
+}
+
+# = enable services = = = 
+function enableServices() {
+    # sudo systemctl enable --now
+    sudo systemctl enable --now vnstat.service
+    sudo systemctl enable --now ufw.service 
+    sudo systemctl enable --now auto-cpufreq.service
+}
+
+# udev rules 
+function udevRules() {
+    RULES=$(find "${MYDOTS}"/udev-rules -type f | grep '.*.rules')
+
+    for rule in ${RULES[@]}; do
+        if [[ ! $(find /etc/udev/rules.d/$(basename ${rule}) -type l 2>/dev/null) ]]; then
+            sudo ln -sf "${rule}" /etc/udev/rules.d && \
+            echo -e "  ${rule}  \e[34m--> \e[32m/etc/udev/rules.d/$(basename ${rule})\e[0m"
+            sudo udevadm control --reload
+            # sudo udevadm trigger # trigger udev rules mannually
+        else 
+            echo -e " ${rule}  \e[34m--> \e[33mrule already exists"
+        fi
+    done
+
+}
+
+# = third party packages = = =
+function thirdParty() {
+# install telebin: https://telebit.cloud
+# curl https://get.telebit.io/ | bash 
+
+# change sh --> dash 
+sudo /usr/bin/rm /bin/sh 
+sudo ln -sf /usr/bin/dash /bin/sh 
+
+# note tacking app: 'https://xwmx.github.io/nb/'
+curl -L https://raw.github.com/xwmx/nb/master/nb -o ~/.local/bin/nb && chmod +x ~/.local/bin/nb
+}
+
+# = install all = = =
+function install() {
+   choice=$(grep "^function" ${0} | grep -v "^function main" | awk '{print $2}' | cut -d\( -f1)
+   for cmd in ${choice}; do
+      eval "${cmd}"
+   done
+   exit;
+}
+
+# = main = = =
+main() {
+   choice=$(grep "^function" ${0} | grep -v "^function main" | awk '{print $2}' | cut -d\( -f1| fzf -m --prompt "Select multyple options: ")
+   for cmd in ${choice}; do
+      eval "${cmd}"
+   done
+   exit;
+}
+
+[[ "${1}" == "all" ]] && install
+[[ ${1} ]] && ${1} || main ; exit 
