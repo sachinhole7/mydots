@@ -16,15 +16,12 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
   -- my plugins here
   use 'wbthomason/packer.nvim'
-  use 'mbbill/undotree'
   use 'glepnir/dashboard-nvim'
-  use 'voldikss/vim-floaterm'
-  use 'Mofiqul/dracula.nvim'
 
   -- colorschemes
   use 'nvim-tree/nvim-web-devicons'
-  use 'folke/tokyonight.nvim'
-  use 'lunarvim/darkplus.nvim'
+  -- use 'folke/tokyonight.nvim'
+  -- use 'lunarvim/darkplus.nvim'
   use 'morhetz/gruvbox'
 
   -- commenter

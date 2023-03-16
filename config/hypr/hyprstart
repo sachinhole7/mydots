@@ -5,27 +5,35 @@ export MOZ_ENABLE_WAYLAND=1
 export GTK_THEME=Catppuccin-blue:dark
 
 export XDG_SESSION_TYPE=wayland
- export XDG_SESSION_CLASS=user
- export XDG_MENU_PREFIX=lxde- # for pcmanfm to work nicely
- export XDG_SESSION_DESKTOP="Hyprland"
- export XDG_CURRENT_DESKTOP="Hyprland"
- export XDG_CONFIG_HOME="$HOME/.config"
- export XDG_DATA_DIRS="/usr/local/share:/usr/share"
- export XDG_CONFIG_DIRS="/usr/share/upstart/xdg:/etc/xdg"
- export XDG_CACHE_HOME="$HOME/.cache"
- export XDG_DATA_HOME="$HOME/.local/share/"
- export SAL_USE_VCLPLUGIN=gtk
- export SSH_ASKPASS=torios-askpass  #zenity dialog for ssh
- export SUDO_ASKPASS=torios-askpass  #zenity dialog for sudo -A
- export QT_QPA_PLATFORMTHEME=qt5ct # qt5ct # kvantum
- export OPENAI_API_KEY="$(cat /home/sachin/.chatgptkey)"
+export XDG_SESSION_CLASS=user
+export XDG_MENU_PREFIX=lxde- # for pcmanfm to work nicely
+export XDG_SESSION_DESKTOP="Hyprland"
+export XDG_CURRENT_DESKTOP="Hyprland"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share"
+export XDG_CONFIG_DIRS="/usr/share/upstart/xdg:/etc/xdg"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share/"
+export SAL_USE_VCLPLUGIN=gtk
+export SSH_ASKPASS=torios-askpass  #zenity dialog for ssh
+export SUDO_ASKPASS=torios-askpass  #zenity dialog for sudo -A
+export QT_QPA_PLATFORMTHEME=qt5ct # qt5ct # kvantum
+export OPENAI_API_KEY="$(cat /home/sachin/.chatgptkey)"
 
 # defaults
- export EDITOR=nvim
- export TERMINAL=alacritty
- export BROWSER=firefox
- export DOTS=~/.local/mydots
- export SUDO_ASKPASS=~/.local/bin/mypass
+export EDITOR=nvim
+export TERMINAL=alacritty
+export BROWSER=firefox
+export DOTS=~/.local/mydots
+export SUDO_ASKPASS=~/.local/bin/mypass
+
+# default dir 
+export XDG_DOWNLOAD_DIR="$HOME/download"
+export XDG_PUBLICSHARE_DIR="$HOME/public"
+export XDG_DOCUMENTS_DIR="$HOME/docs"
+export XDG_MUSIC_DIR="$HOME/music"
+export XDG_PICTURES_DIR="$HOME/pix"
+export XDG_VIDEOS_DIR="$HOME/videos"
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 

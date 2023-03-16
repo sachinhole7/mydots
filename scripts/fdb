@@ -17,11 +17,12 @@ function Recovery(){
 # remove system Application from android device
 function Remove_system_apk(){
       # get apk package name
-	apk="$(adb shell pm list packages|cut -d\: -f2|fzf --prompt "select Aplication: ")"
-      # confirm	
-      	remove=$(echo -e "No\nYes"|fzf --prompt " Do you want To Remove '${apk}' ")
-      # remove applicatiton	
-	[[ "Yes" == ${remove} ]] && adb shell pm uninstall --user 0 ${apk} && echo " ${apk} $(date)" >> ${fdb_log}/uninstall.log
+	apk="$(adb shell pm list packages|cut -d\: -f2|fzf -m --prompt "select Aplication: ")"
+           # remove applicatiton	
+      for APK in ${apk[@]}; do # confirm	
+        remove=$(echo -e "No\nYes"|fzf --prompt " Do you want To Remove '${APK}' ")
+	    [[ "Yes" == ${remove} ]] && adb shell pm uninstall --user 0 ${APK} && echo " ${APK} $(date)" >> ${fdb_log}/uninstall.log
+      done
 }
 
 # reinstall system application

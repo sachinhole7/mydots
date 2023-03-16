@@ -16,9 +16,16 @@
  export QT_QPA_PLATFORMTHEME=qt5ct # qt5ct # kvantum
  export OPENAI_API_KEY="$(cat /home/sachin/.chatgptkey)"
 
+export XDG_DOWNLOAD_DIR="$HOME/download"
+export XDG_PUBLICSHARE_DIR="$HOME/public"
+export XDG_DOCUMENTS_DIR="$HOME/docs"
+export XDG_MUSIC_DIR="$HOME/music"
+export XDG_PICTURES_DIR="$HOME/pix"
+export XDG_VIDEOS_DIR="$HOME/videos"
+
 # defaults
  export EDITOR=nvim
-#  export TERMINAL=alacritty
+ export TERMINAL=alacritty
  export BROWSER=firefox
  export DOTS=~/.local/mydots
  export SUDO_ASKPASS=~/.local/bin/mypass

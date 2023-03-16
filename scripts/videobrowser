@@ -31,7 +31,7 @@ for FILE in $videofullpath; do
 done
 
 # select video to play
-selected=$(basename $(sxiv -trboq ${THUMBNAILS} | sed 's/.jpg//g'))
+selected=$(basename $(sxiv -trboqg 1047x570 ${THUMBNAILS} | sed 's/.jpg//g'))
 
 # play video 
 if [[ ! -z ${selected} ]]; then
