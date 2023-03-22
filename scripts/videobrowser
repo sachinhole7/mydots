@@ -14,7 +14,7 @@ videofullpath=$(find "${VIDEO_DIR}" -type f)
 for FILE in $videofullpath; do 
     # rename video files if contains spces
     if [[ $(echo "${FILE}" | grep " ") ]]; then
-        mv -f "${FILE}" $(echo "${FILE}" | tr ' ' '-')
+        mv -f "${FILE}" $(echo "${FILE}" | sed 's/ /-/g')
         # get files Full path
         videofullpath=$(find "${VIDEO_DIR}" -type f)
     fi
