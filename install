@@ -79,7 +79,6 @@ LINKS=(
     "${HOME}"/.vimrc
     "${HOME}"/.xinitrc
     "${HOME}"/.vim/vimplug
-    "${HOME}"/.local/bin
     "${HOME}"/.config/dunst
     "${HOME}"/.config/xfce4
     "${HOME}"/.config/alacritty
@@ -99,11 +98,13 @@ LINKS=(
     "${HOME}"/.config/user-dirs.dirs
     
     "${HOME}"/.config/bspwm
+    "${HOME}"/.config/hypr 
 )
 
 # = create directory if don't exist = = =
 [[ -d ${HOME}/pix ]]                || mkdir -p ${HOME}/{pix,docs,videos,music,download,public}
 [[ -d ${HOME}/.config ]]            || mkdir -p "${HOME}"/.config
+[[ -d ${HOME}/.local/bin ]]            || mkdir -p "${HOME}"/.local/bin
 [[ -d ${HOME}/.vim/undodir ]]       || mkdir -p "${HOME}"/.vim/.undodir
 
 # = install aur helper (pikaur) = = =

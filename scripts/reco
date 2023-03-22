@@ -1,8 +1,0 @@
-#!/bin/sh
-
-dir=$HOME/andro/redminote10/custom_recovery
-
-adb reboot bootloader 2>/dev/null && sleep 7
-
-img=$(ls ${dir}/*.img|fzf)
-fastboot boot ${img}
