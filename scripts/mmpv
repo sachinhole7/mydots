@@ -1,0 +1,14 @@
+#!/bin/sh 
+
+#if [ $(printf "${*}" | grep -o "http") ] ; then 
+   VIDEO_QULITY="$(printf "360  SD\n480  FULL SD\n720  HD\n1080 FULL HD\n1414 2k" | rofi -dmenu -theme "${HOME}"/.config/rofi/power.rasi | cut -d' ' -f1)"
+   [ "${VIDEO_QULITY}" ] || exit 1;
+      notify-send "mmpv playing $(basename ${*})"
+      mpv --ytdl-format="bestvideo[ext=mp4][height<=?"${VIDEO_QULITY}"]+bestaudio[ext=m4a]" "${*}" &
+#else 
+ #  /usr/bin/mpv "${*}"
+ #  notify-send "mmpv playing $(basename ${*})"
+#fi 
+
+exit
+
