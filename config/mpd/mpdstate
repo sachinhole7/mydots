@@ -1,8 +1,9 @@
 sw_volume: 100
 audio_device_state:1:PipeWire Sound Server
 audio_device_state:1:my_fifo
-state: stop
+state: pause
 current: 0
+time: 12.842000
 random: 0
 repeat: 0
 single: 0
@@ -11,14 +12,7 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-song_begin: https://cdn.transistor.fm/file/transistor/m/shows/15689/be2f0c3c28c21e155a485bd327d541c0.mp3
-Artist: Alex Booker
-Title: Netlify CEO Matt Biilmann:
-Album: The Scrimba Podcast
-Track: 102
-Date: 2023-02-13T12:39
-Genre: Podcast
-song_end
+0:valentine/DILBAR___Satyameva_Jayate___John_Abraham_Nora_Fatehi___Tanishk_B_Neha_Kakkar_Ikka_Dhvani___T-Series.mp3
 1:valentine/DILBAR_Lyrical___Satyameva_Jayate__John_Abraham__Nora_Fatehi_Tanishk_B__Neha_Kakkar_Dhvani__Ikka.mp3
 2:valentine/DUA__Official_Video__Manan_Bhardwaj___Kaashish_Vohra__Rahul_Jaittly___Amanninder_Singh___Bhushan_K.mp3
 3:valentine/Dumadum_Mast_Kalandar_Code_Name_Tiranga___Harrdy_S__Parineeti_C___Jaidev_K__Kumaar__Sardar_A__Sanj_V.mp3

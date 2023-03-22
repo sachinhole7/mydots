@@ -1,5 +1,0 @@
-#!/bin/sh 
-
-[ ${1} ] && query="${*}" || read -rp "Enter your Query: " query 
-
-node "${HOME}"/chatbot/gpt.js "${query}" | tail -n+3 

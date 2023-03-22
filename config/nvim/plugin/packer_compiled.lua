@@ -115,11 +115,6 @@ _G.packer_plugins = {
     path = "/home/sachin/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
-  ["dracula.nvim"] = {
-    loaded = true,
-    path = "/home/sachin/.local/share/nvim/site/pack/packer/start/dracula.nvim",
-    url = "https://github.com/Mofiqul/dracula.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/sachin/.local/share/nvim/site/pack/packer/start/friendly-snippets",

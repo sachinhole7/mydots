@@ -22,8 +22,6 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-web-devicons'
   -- use 'folke/tokyonight.nvim'
   -- use 'lunarvim/darkplus.nvim'
-  -- Using Packer:
-  use 'Mofiqul/dracula.nvim'
   use 'morhetz/gruvbox'
 
   -- commenter

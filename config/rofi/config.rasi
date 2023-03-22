@@ -26,10 +26,9 @@ configuration {
 }
 
 window {
-  width: 23%;
-  location: west;
-  x-offset: 7px;
-  // y-offset: 16%;
+  width: 33%;
+  location: north;
+  y-offset: 16%;
 }
 
 element {
@@ -65,7 +64,7 @@ listview {
   padding: 8 12;
   background-color: @bg;
   columns: 1;
-  lines: 21;
+  lines: 7;
 }
 
 mainbox {

@@ -26,10 +26,12 @@ function help() {
 onExit() {
     printf '\033[2J\033[H\033[?1049l' # hide alternate screen 
     printf "\033[?25h" # show cursor
+    stty icanon echo 
 }
 
 # = run on start = = =
 onStart() {
+    stty -icanon -echo # echo off 
     printf "\033[?25l" # hide cursor
     printf '\033[?1049h\033[2J\033[H' # show alternate screen
     # trap SIGINT and run on_exit to ensure we clean things up properly.
@@ -60,9 +62,10 @@ function getKey() {
 onStart
 map 1
 while true ; do
+   set echo off
    read -r -n1 KEY
-   printf '\033[2J';
-   printf '\033[1;1H'
+   set echo on
+   # printf '\033c';
    case "${KEY}" in
       "j"|"$DOWN") [[ "${INDEX}" -lt "${LENGTH_OF_ARRAY}" ]] && ((INDEX++)) || INDEX=1    ;;
         "k"|"$UP") [[ "${INDEX}" -gt 1 ]] && ((INDEX--)) || INDEX="${LENGTH_OF_ARRAY}"    ;;
