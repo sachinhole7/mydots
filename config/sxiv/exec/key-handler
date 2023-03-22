@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 setbg() { 
     if [ "${1}" == "xbg" ]; then 

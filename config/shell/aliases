@@ -13,7 +13,7 @@ export PATH=$PATH:/opt/android-studio/bin
 # aliaces 
 alias fzf='fzf --border bold'
 alias rm='trash'
-alias lf='lfub'
+# alias lf='lfub'
 alias bin='$HOME/.local/bin'
 
 alias cat='bat -p'
@@ -62,7 +62,7 @@ nvm() {
 }
 
 # start Hyprland
-# [[ $(pgrep Hyprland) ]] || exec /home/sachin/.config/hypr/hyprstart 
+[[ $(pgrep Hyprland) ]] || exec /home/sachin/.config/hypr/hyprstart 
 
 # start xorg-server
 # [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

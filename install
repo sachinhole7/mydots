@@ -5,7 +5,7 @@ MYDOTS="${HOME}/.local/mydots"
 BACKUP_DIR="${HOME}/.config/config.old"
 # = = =
 
-[[ -f "${MYDOTS}"/setup ]] && source "${MYDOTS}"/setup
+# [[ -f "${MYDOTS}"/setup ]] && source "${MYDOTS}"/setup
 
 # = arch packages = = = 
 pkg=(
@@ -131,7 +131,7 @@ function setupDotfiles() {    # = setup dotfiles
     fi
 
     # link script directory
-    [[ $(find .local/scripts -type l) ]] || ln -sf "${MYDOTS}"/scripts "${HOME}"/.local/scripts
+    [[ $(find .local/scripts -type l) ]] || ln -sf "${MYDOTS}"/scripts "${HOME}"/.local/
 
     for FILE in "${LINKS[@]}"; do
 
