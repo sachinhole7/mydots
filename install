@@ -1,9 +1,11 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # = = =
 MYDOTS="${HOME}/.local/mydots"
 BACKUP_DIR="${HOME}/.config/config.old"
 # = = =
+
+[[ -f "${MYDOTS}"/setup ]] && source "${MYDOTS}"/setup
 
 # = arch packages = = = 
 pkg=(
@@ -106,20 +108,21 @@ LINKS=(
 [[ -d ${HOME}/.config ]]            || mkdir -p "${HOME}"/.config
 [[ -d ${HOME}/.local/bin ]]            || mkdir -p "${HOME}"/.local/bin
 [[ -d ${HOME}/.vim/undodir ]]       || mkdir -p "${HOME}"/.vim/.undodir
+[[ -d ${HOME}/.local/bin ]]         || mkdir -p "${HOME}"/.local/bin
 
 # = install aur helper (pikaur) = = =
-function aurHelper() {
+function aurHelper() {        # = install aur helper 'pikaur'
    git clone https://aur.archlinux.org/pikaur.git /tmp/pikaur 
    cd /tmp/pikaur && makepkg -si ; cd -
 }
 
 # = install arch packages = = =
-function pkgInstall() {
+function pkgInstall() {       # = install packages 'arch and aur'
    pikaur -S --needed "${pkg[@]}"
 }
 
 # = setup dotfiles = = =
-function setupDotfiles() {
+function setupDotfiles() {    # = setup dotfiles 
     
     # cheack mydotfile directory exist's
     if [[ ! -d "${MYDOTS}" ]]; then 
@@ -164,7 +167,7 @@ function setupDotfiles() {
 }
 
 # = enable services = = = 
-function enableServices() {
+function enableServices() {     # = enable and start services 
     # sudo systemctl enable --now
     sudo systemctl enable --now vnstat.service
     sudo systemctl enable --now ufw.service 
@@ -172,7 +175,7 @@ function enableServices() {
 }
 
 # udev rules 
-function udevRules() {
+function udevRules() {         # =  set udev rules 
     RULES=$(find "${MYDOTS}"/udev-rules -type f | grep '.*.rules')
 
     for rule in ${RULES[@]}; do
@@ -188,21 +191,8 @@ function udevRules() {
 
 }
 
-# = third party packages = = =
-function thirdParty() {
-# install telebin: https://telebit.cloud
-# curl https://get.telebit.io/ | bash 
-
-# change sh --> dash 
-sudo /usr/bin/rm /bin/sh 
-sudo ln -sf /usr/bin/dash /bin/sh 
-
-# note tacking app: 'https://xwmx.github.io/nb/'
-curl -L https://raw.github.com/xwmx/nb/master/nb -o ~/.local/bin/nb && chmod +x ~/.local/bin/nb
-}
-
 # = install all = = =
-function install() {
+function install() {           # = install all 
    choice=$(grep "^function" ${0} | grep -v "^function main" | awk '{print $2}' | cut -d\( -f1)
    for cmd in ${choice}; do
       eval "${cmd}"

@@ -26,6 +26,11 @@ alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 alias listdir="ls -d */ > list"
 
+# nb 
+nbvid() {
+    nb add " ${1}"
+}
+
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -47,7 +52,7 @@ fd(){
 }
 
 # nb todo 
-nb todo
+nb tasks:todo
 
 # node version manager
 nvm() {
@@ -57,7 +62,7 @@ nvm() {
 }
 
 # start Hyprland
-[[ $(pgrep Hyprland) ]] || exec /home/sachin/.config/hypr/hyprstart 
+# [[ $(pgrep Hyprland) ]] || exec /home/sachin/.config/hypr/hyprstart 
 
 # start xorg-server
 # [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx

@@ -1,0 +1,12 @@
+{
+  "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "material-product-icons",
+  "window.menuBarVisibility": "toggle",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
+  "editor.cursorStyle": "block"
+}
