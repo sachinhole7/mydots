@@ -5,7 +5,7 @@ fdb_log=${HOME}/.cache/fdb
 
 # boots recovery image to android device
 function Recovery(){
-  	rec=${HOME}/andro/rom/recovery
+    rec="${HOME}/andro/redmiNote10(mojito)"
       # select recovery image
   	recovery_img=$(ls ${rec}|fzf --prompt " select Recovery: " )
       # reboot to fastboot mode 

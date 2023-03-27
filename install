@@ -15,7 +15,7 @@ pkg=(
 
    # wayland = = =
    wayland wayland-utils xorg-xwayland brightnessctl swaybg qt5-wayland qt6-wayland
-   clipman
+   clipman wlr-randr
 
    # network = = =
    networkmanager gufw
@@ -57,14 +57,14 @@ pkg=(
    mpv mpd mpc playerctl ncmpcpp
    
    # dev = = =
-   code vim neovim git gcc python3 python-pip
+   code vim neovim git gcc python3 python-pip nodejs yarn
 
    # system = = =
    htop glances conky gparted mtpfs gvfs-mtp gvfs-gphoto2 ntfs-3g man-db doas polkit 
    lxsession lxqt-policykit picom
 
    # utils = = =
-   curl wget zip unzip net-tools bat xarchiver ueberzug trash-cli flameshot entr
+   curl wget zip gzip unzip net-tools bat xarchiver ueberzug trash-cli flameshot entr
 
    # extra = = = 
    ytfzf clamav ffmpeg imagemagick polybar dunst feh inotify-tools vnstat yt-dlp tmate 
@@ -72,7 +72,7 @@ pkg=(
    
    # arch user repository = = =
    python-pywal timeshift ly auto-cpufreq betterlockscreen ttf-ms-fonts wkhtmltopdf-static  
-   xdg-desktop-portal-hyprland-git hyprpicker-git
+   xdg-desktop-portal-hyprland-git hyprpicker-git apk
 )
 
 # = configuration file location

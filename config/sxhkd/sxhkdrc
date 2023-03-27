@@ -15,19 +15,19 @@ alt + c
 
 # power menu 
 super + x
-   $HOME/.local/bin/powermenu 
+   $HOME/.local/scripts/powermenu 
 
 # display 
 super + m 
-   $HOME/.local/bin/exmon
+   $HOME/.local/scripts/exmon
 
 # wifimenu
 super + alt + w
-   $HOME/.local/bin/conwifi 
+   $HOME/.local/scripts/conwifi 
 
 # bluetooth menu
 super + alt + b
-   $HOME/.local/bin/bluemenu
+   $HOME/.local/scripts/bluemenu
 
 # media control 
 super + alt + m
@@ -45,7 +45,7 @@ super + shift + {f,w,e}
 
 # scratch pad 
 alt + Return
-   ~/.local/bin/scpad &
+   ~/.local/scripts/scpad &
 
 # Terminal Apps
 ctrl + alt + {v,n,r,h,g,f}
@@ -80,6 +80,9 @@ super + alt + l
 
 super + alt + p
    brave --app="https://pastebin.com"
+
+super + alt + d
+   brave --app="https://discord.com/channels/@me"
 
 # system keys - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 

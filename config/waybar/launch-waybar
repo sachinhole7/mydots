@@ -1,0 +1,20 @@
+#!/usr/bin/env bash 
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+BARCONFIGS="${HOME}/.config/waybar"
+THEME="default"
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+# link to 'PATH' variable
+[[ -f "${HOME}"/.local/bin/archbar ]] || ln -sf "${BARCONFIGS}"/"${0}" "${HOME}"/.local/bin/archbar
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
+if [[ $(pgrep waybar) ]]; then 
+    pkill waybar && waybar -c "${BARCONFIGS}/${THEME}/config.jsonc" -s "${BARCONFIGS}/${THEME}/style.css" &
+else
+    waybar -c "${BARCONFIGS}/${THEME}/config.jsonc" -s "${BARCONFIGS}/${THEME}/style.css" &
+fi
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =

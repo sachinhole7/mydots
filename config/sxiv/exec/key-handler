@@ -24,7 +24,7 @@ h - help " -i "*"
 
 while read file; do
 	case "$1" in
-		"w") wal -i "$file" && cp -f "$file" "$HOME"/.config/bg.png		        ;; # set with pywal wallpaper
+		"w") wal -i "$file" && setbg xbg "$file"		        ;; # set with pywal wallpaper
         "b") setbg xbg "$file"                                                  ;; # set wallpaper ( primary monitor )
         "m") setbg waybg "$file"                                                ;; # set wallpaper ( external monitor )
         "l") betterlockscreen -u "$file" 	                                    ;; # set lockscreen wallpaper

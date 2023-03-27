@@ -13,6 +13,6 @@ fi
 
 for MFILE in ${mdfiles}; do 
    marked "${MFILE}" -o /tmp/mark.html
-   wkhtmltopdf /tmp/mark.html  "$(basename "${MFILE}" |sed 's/.md/.pdf/g')"
+   wkhtmltopdf /tmp/mark.html  "$(basename "${MFILE}" | sed 's/.md/.pdf/g')"
 done
 

@@ -17,8 +17,11 @@ export XDG_DATA_HOME="$HOME/.local/share/"
 export SAL_USE_VCLPLUGIN=gtk
 export SSH_ASKPASS=torios-askpass  #zenity dialog for ssh
 export SUDO_ASKPASS=torios-askpass  #zenity dialog for sudo -A
-export QT_QPA_PLATFORMTHEME=qt5ct # qt5ct # kvantum
 export OPENAI_API_KEY="$(cat /home/sachin/.chatgptkey)"
+
+# wayland fix 
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt5ct # qt5ct # kvantum
 
 # defaults
 export EDITOR=nvim

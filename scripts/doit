@@ -33,9 +33,10 @@ sed -i '/^$/d' ${DOITFILE}
 item=$(cat ${DOITFILE} | rofi -dmenu -theme todo.rasi) 2> /dev/null
 
 # = formate = = =
-[[ -z ${item} ]] ||  echo "${item}%{F-}" > "${TASKFILE}" 
+# [[ -z ${item} ]] ||  echo "${item}%{F-}" > "${TASKFILE}" 
+[[ -z ${item} ]] ||  echo "${item}" > "${TASKFILE}" 
 
 # = update daemon = = =
-[[ -f /tmp/doitmp ]] || while inotifywait -e modify "${TASKFILE}" ; do update; done & 
-[[ -f /tmp/doitmp ]] || touch /tmp/doitmp
+# [[ -f /tmp/doitmp ]] || while inotifywait -e modify "${TASKFILE}" ; do update; done & 
+# [[ -f /tmp/doitmp ]] || touch /tmp/doitmp
 

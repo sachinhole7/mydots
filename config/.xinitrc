@@ -50,13 +50,13 @@ fi
 
 
 # kill program if running
- pkill -9 mpd dunst picom plank polybar # clipmenud kdeconnect-indicator 
+ pkill -9 mpd dunst picom plank polybar flameshot # clipmenud kdeconnect-indicator 
 
 # aplication dock
  plank &
 
 # polybar 
- polybar -r &
+ # polybar -r &
 
 # lock
 # betterlockscreen -l blur & 

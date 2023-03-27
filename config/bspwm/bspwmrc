@@ -18,6 +18,8 @@ else
     feh --no-fehbg --bg-scale ${HOME}/.config/bg.png
 fi
 
+monitor = ${env:MONITOR:eDP1}
+polybar -r &
 # bspwm configuration = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 bspc config border_width 2 
 bspc config window_gap 5 
