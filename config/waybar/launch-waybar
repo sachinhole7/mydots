@@ -4,6 +4,7 @@
 
 BARCONFIGS="${HOME}/.config/waybar"
 THEME="default"
+# THEME="dracula"
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 

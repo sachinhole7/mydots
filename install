@@ -64,7 +64,7 @@ pkg=(
    lxsession lxqt-policykit picom
 
    # utils = = =
-   curl wget zip gzip unzip net-tools bat xarchiver ueberzug trash-cli flameshot entr
+   curl wget zip gzip unzip net-tools bat xarchiver ueberzug trash-cli grim slurp entr
 
    # extra = = = 
    ytfzf clamav ffmpeg imagemagick polybar dunst feh inotify-tools vnstat yt-dlp tmate 
