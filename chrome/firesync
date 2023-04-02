@@ -1,0 +1,16 @@
+#!/usr/bin/bash 
+
+DOTS_DIR="${HOME}/.local/mydots"
+DEFAULT_FIREDIR=$(ls -d ~/.mozilla/firefox/*.default-release)
+echo $DEFAULT_FIREDIRE
+
+# check firefox
+[[ -f /usr/bin/firefox ]] || sudo pacman -Syy firefox 
+
+# check 'chrome' dir 
+[[ -d "${DEFAULT_FIREDIR}/chrome" ]] && mv -f "${DEFAULT_FIREDIR}/chrome" "${DEFAULT_FIREDIR}/back.chrome"
+
+# check 'userChrome.css' file 
+if [[ ! $(find "${DEFAULT_FIREDIR}/chrome" -type l ) ]]; then 
+    ln -sf "${DOTS_DIR}/chrome" "${DEFAULT_FIREDIR}/chrome"
+fi
