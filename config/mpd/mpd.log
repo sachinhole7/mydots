@@ -2412,3 +2412,227 @@ Mar 29 11:32 : player: played "valentine/DILBAR_Lyrical___Satyameva_Jayate__John
 Mar 29 17:47 : player: played "valentine/DILBAR_Lyrical___Satyameva_Jayate__John_Abraham__Nora_Fatehi_Tanishk_B__Neha_Kakkar_Dhvani__Ikka.mp3"
 Mar 29 20:06 : player: played "valentine/DILBAR_Lyrical___Satyameva_Jayate__John_Abraham__Nora_Fatehi_Tanishk_B__Neha_Kakkar_Dhvani__Ikka.mp3"
 Mar 29 20:11 : player: played "Dance_Electronic_Mix/One_More_Time.mp3"
+Apr 07 14:41 : exception: Bad song index
+Apr 07 23:22 : player: played "valentine/_Baaton_Ko_Teri__Full_AUDIO_Song___Arijit_Singh___Abhishek_Bachchan__Asin___T-Series.mp3"
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 53559.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 144349.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1885.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 45203.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 45727.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 344292.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1735.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 33315.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 64124.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 68457.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1823.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 29253.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 67810.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1775.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 82838.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 2021.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 44440.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 29888.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 114828.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 98730.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 52508.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 25658.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 46507.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 46336.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1360.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 46156.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 67306.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 44882.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 35253.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 51159.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 90431.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Note: Illegal Audio-MPEG-Header 0x00000000 at offset 38285.
+Note: Trying to resync...
+Note: Hit end of (available) data during resync.
+Apr 08 21:34 : mpg123: mpg123_getformat() failed: Message: I am done with this track.
+Apr 08 21:34 : ffmpeg/mp3: Format mp3 detected only with low score of 24, misdetection possible!
+Apr 08 21:34 : ffmpeg/mp3: Failed to read frame size: Could not seek to 1151.
+Apr 08 21:34 : update: added /Powerful.HANUMAN-CHALISA.m4a
+Apr 08 21:58 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 09 09:18 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 09 10:41 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 09 23:21 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 10 09:45 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 10 18:59 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 10 22:16 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 11 16:49 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 11 18:25 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 11 22:50 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 12 05:23 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 12 17:27 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 12 22:18 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 13 08:46 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 13 12:27 : output: Failed to play on "PipeWire Sound Server" (pipewire): connection error
+Apr 13 12:35 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 13 23:27 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 14 11:13 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 14 13:51 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 14 16:06 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 14 22:53 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 15 10:20 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 15 22:12 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 16 09:02 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 16 11:30 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 16 13:00 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 16 17:37 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 16 18:02 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 16 20:53 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 16 23:19 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 17 17:26 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 17 20:05 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 17 20:44 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 17 22:42 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 18 11:04 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+Apr 18 13:18 : player: played "Culture Code - Make Me Move (feat. Karra) [NCS Release].mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Apr 18 16:43 : player: played "valentine/_Kabira_Full_Song__Yeh_Jawaani_Hai_Deewani___Pritam___Ranbir_Kapoor__Deepika_Padukone.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+*** pw_stream_update_properties called from wrong context, check thread and locking: Operation not permitted
+Apr 18 16:46 : player: played "valentine/_Lungi_Dance_Chennai_Express__New_Video_Feat__Honey_Singh__Shahrukh_Khan__Deepika.mp3"
+*** pw_stream_update_properties called from wrong context, check thread and locking: Device or resource busy
+Apr 18 17:43 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 18 21:59 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 19 09:00 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 19 11:13 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 19 21:51 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 20 08:27 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 20 10:59 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 20 19:58 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 21 23:18 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 22 22:25 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 23 22:38 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 24 13:08 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 24 19:48 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"
+Apr 24 20:43 : player: played "valentine/_Mere_Rashke_Qamar__Song_With_Lyrics___Baadshaho___Ajay_Devgn__Ileana__Nusrat___Rahat_Fateh_Ali_Khan.mp3"

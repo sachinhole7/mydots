@@ -3,6 +3,7 @@
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 BARCONFIGS="${HOME}/.config/waybar"
+# THEME="mocha"
 THEME="default"
 # THEME="dracula"
 

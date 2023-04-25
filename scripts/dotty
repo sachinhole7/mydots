@@ -72,11 +72,15 @@ pkg=(
    
    # arch user repository = = =
    python-pywal timeshift ly auto-cpufreq betterlockscreen ttf-ms-fonts wkhtmltopdf-static  
-   xdg-desktop-portal-hyprland-git hyprpicker-git apx archlinux-tweak-tool
+   xdg-desktop-portal-hyprland-git hyprpicker-git apk
 )
 
 # = configuration file location
 LINKS=(
+$(pwd)/"${1}"
+$(pwd)/"${1}"
+$(pwd)/"${1}"
+$(pwd)/"${1}"
     # "${HOME}"/.bashrc
     "${HOME}"/.vimrc
     "${HOME}"/.xinitrc
@@ -193,11 +197,11 @@ function udevRules() {         # =  set udev rules
 
 # = add new links to LINKS
 addLinks() {
-    sed -i "/LINKS=(/a \\${1}" "${0}"
-    "${HOME}"/mycolor
-"${HOME}"/mycolor
-$(pwd)/mycolor
-mycolor
+    sed -i '/LINKS=(/a \\$(pwd)/"${1}"' "${0}"
+$(pwd)/"${1}"
+$(pwd)/"${1}"
+$(pwd)/"${1}"
+$(pwd)/"${1}"
 }
 
 # = install all = = =
